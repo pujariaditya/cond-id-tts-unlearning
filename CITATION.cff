@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the paper below."
+title: "cond-ID: Conditioning-Space Identity Redirection for Speaker Unlearning in Zero-Shot TTS"
+version: 1.0.0
+date-released: "2026-09-07"
+authors:
+  - family-names: Pujari
+    given-names: Aditya
+    affiliation: "University of North Texas, Denton, Texas, USA"
+    email: adityapujari@my.unt.edu
+  - family-names: Rattani
+    given-names: Ajita
+    affiliation: "University of North Texas, Denton, Texas, USA"
+    email: ajita.rattani@unt.edu
+repository-code: "https://github.com/pujariaditya/cond-id-tts-unlearning"
+license: MIT
+preferred-citation:
+  type: generic
+  title: "cond-ID: Conditioning-Space Identity Redirection for Speaker Unlearning in Zero-Shot TTS"
+  authors:
+    - family-names: Pujari
+      given-names: Aditya
+      affiliation: "University of North Texas, Denton, Texas, USA"
+    - family-names: Rattani
+      given-names: Ajita
+      affiliation: "University of North Texas, Denton, Texas, USA"

@@ -1,0 +1,72 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cond-id"
+version = "1.0.0"
+description = "cond-ID: conditioning-space identity redirection for speaker unlearning in zero-shot TTS."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [
+    { name = "Aditya Pujari", email = "adityapujari@my.unt.edu" },
+    { name = "Ajita Rattani", email = "ajita.rattani@unt.edu" },
+]
+keywords = ["tts", "machine-unlearning", "speaker-unlearning", "xtts", "tortoise", "indextts"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Multimedia :: Sound/Audio :: Speech",
+]
+
+# The XTTS-v2 / Tortoise-TTS environment. Pin torch from the CUDA index first
+# (see requirements-core.txt); IndexTTS-1.5 installs in its own venv
+# (scripts/setup_indextts.sh, requirements-indextts.txt). Upper bounds guard against
+# silent breakage from major upstream releases.
+dependencies = [
+    "torch>=2.6,<3",
+    "torchaudio>=2.6,<3",
+    "numpy>=1.24,<2",
+    "soundfile>=0.12",
+    "jiwer>=3.0",
+    "transformers>=4.40,<5",
+    "huggingface-hub>=0.24",
+    "coqui-tts>=0.27,<0.28",
+    "faster-whisper>=1.1",
+    "speechbrain>=1.0,<2",
+    "PyYAML>=6.0",
+]
+
+[project.scripts]
+cond-id = "cond_id.cli:main"
+cond-id-eval = "cond_id.cli:main_eval"
+
+[project.urls]
+Homepage = "https://github.com/pujariaditya/cond-id-tts-unlearning"
+Repository = "https://github.com/pujariaditya/cond-id-tts-unlearning"
+Issues = "https://github.com/pujariaditya/cond-id-tts-unlearning/issues"
+
+[tool.setuptools.packages.find]
+include = ["cond_id*"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W", "UP", "B"]
+# E501 (line length) is left to the formatter so long doc/URL lines don't fail lint.
+ignore = ["E501"]
+
+[tool.mypy]
+python_version = "3.10"
+ignore_missing_imports = true
+files = ["cond_id"]

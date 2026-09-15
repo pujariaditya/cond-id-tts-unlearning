@@ -1,0 +1,22 @@
+# Core environment for the XTTS-v2 and Tortoise-TTS backbones + the shared
+# evaluation stack (WavLM verifier, Faster-Whisper WER). IndexTTS-1.5 needs its
+# own isolated environment -- see scripts/setup_indextts.sh.
+#
+# PyTorch is pinned to the CUDA 12.4 build used for the paper. Install it first
+# from the PyTorch index, then the rest:
+#   pip install torch==2.6.0 torchaudio==2.6.0 --index-url https://download.pytorch.org/whl/cu124
+#   pip install -r requirements-core.txt
+#
+# Tested on Python 3.10, CUDA 12.4, cuDNN 9.
+
+torch==2.6.0
+torchaudio==2.6.0
+coqui-tts==0.27.5          # XTTS-v2 + Tortoise-TTS backends
+transformers==4.57.6       # WavLM-Base-Plus-SV held-out verifier
+faster-whisper==1.1.1      # large-v3 WER metric
+speechbrain==1.1.0         # ECAPA-TDNN (in-loop reference)
+jiwer>=3.0                 # word error rate
+soundfile==0.13.1
+numpy==1.26.4
+huggingface-hub==0.36.2
+PyYAML==6.0.2

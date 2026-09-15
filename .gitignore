@@ -1,0 +1,62 @@
+# --- Python ---
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+*.egg
+build/
+dist/
+
+# --- Virtual environments ---
+venv/
+.venv/
+env/
+
+# --- Caches ---
+.cache/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# --- Data (tracked dir, but not its contents) ---
+/data/*
+!data/.gitkeep
+
+# --- Downloaded model checkpoints ---
+/models/
+*.pt
+*.pth
+*.ckpt
+
+# --- Generated artifacts / results ---
+artifacts/
+/results/
+
+# --- Raw corpus dumps ---
+VCTK*/
+*_raw/
+
+# --- Paper sources (kept locally, published separately) ---
+paper/
+
+# --- Audio + weight formats (never committed) ---
+*.wav
+*.flac
+*.safetensors
+*.bin
+*.onnx
+
+# --- LaTeX build artifacts (paper/ and any stray root-level build) ---
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.synctex.gz
+paper/*.log
+paper/*.out
+paper/*.pdf
+# note: root *.log is intentionally NOT ignored (repo has no root .log source);
+# stray root LaTeX logs are removed rather than ignored.
+/main.log
+/main.out

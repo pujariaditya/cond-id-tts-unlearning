@@ -1,0 +1,20 @@
+# Shared evaluation dependencies for the ISOLATED IndexTTS-1.5 environment
+# (created by scripts/setup_indextts.sh). This env is SEPARATE from
+# requirements-core.txt: IndexTTS pins a transformers version that conflicts with
+# the Coqui (XTTS / Tortoise) stack, so it lives in its own virtualenv.
+#
+# NOTE on install order (handled by scripts/setup_indextts.sh, NOT by this file):
+#   1. torch==2.6.0 / torchaudio==2.6.0 from the CUDA 12.4 index (first)
+#   2. these shared eval deps (this file)
+#   3. this repo, editable, --no-deps
+#   4. the IndexTTS library LAST, so its own transformers pin wins
+# Collapsing all of that into a single `pip install -r` would let pip resolve the
+# conflicting transformers pins together and fail, so the staging is deliberate.
+
+faster-whisper==1.1.1
+speechbrain==1.1.0
+jiwer>=3.0
+soundfile==0.13.1
+numpy==1.26.4
+huggingface-hub==0.36.2
+PyYAML==6.0.2

@@ -1,0 +1,45 @@
+cond-ID
+Copyright (c) 2026 Aditya Pujari and Ajita Rattani
+
+This product is licensed under the MIT License (see LICENSE). The MIT License
+applies to the cond-ID SOURCE CODE only. cond-ID does not bundle or
+redistribute any dataset or pretrained model weights; the scripts fetch them from
+their original sources. Each third-party dataset, model, and library keeps its own
+license, and YOU are responsible for complying with each before use.
+
+================================================================================
+IMPORTANT — non-commercial model license
+================================================================================
+* XTTS-v2 (Coqui) is released under the **Coqui Public Model License (CPML)**, which
+  is **NON-COMMERCIAL**. Reproducing the XTTS-v2 results, and any use of the XTTS-v2
+  checkpoint (including an edited model produced by cond-ID on top of it), is
+  bound by the CPML. Review it before use:
+  https://coqui.ai/cpml
+  cond-ID exports edits as adapter *patches* that contain no base weights, so a
+  patch does not redistribute XTTS-v2 — but applying it still requires your own
+  CPML-licensed copy of the base checkpoint.
+
+================================================================================
+Datasets
+================================================================================
+* CSTR VCTK-Corpus-0.92 — CC-BY-4.0, DOI 10.7488/ds/2645.
+  https://doi.org/10.7488/ds/2645
+
+================================================================================
+Pretrained models (fetched at run time, not redistributed here)
+================================================================================
+* XTTS-v2 — Coqui, Coqui Public Model License (CPML, non-commercial). See above.
+* Tortoise-TTS — Coqui / original Tortoise release; review the upstream license.
+* IndexTTS-1.5 — IndexTeam (https://huggingface.co/IndexTeam/IndexTTS-1.5); review
+  the upstream model and code licenses.
+* WavLM-Base-Plus-SV — Microsoft (https://huggingface.co/microsoft/wavlm-base-plus-sv).
+* Faster-Whisper large-v3 — Systran / OpenAI Whisper (MIT); the Whisper weights keep
+  their upstream terms.
+* ECAPA-TDNN (spkrec-ecapa-voxceleb) — SpeechBrain (Apache-2.0), trained on VoxCeleb.
+
+================================================================================
+Python dependencies
+================================================================================
+Each Python dependency (torch, torchaudio, transformers, coqui-tts, faster-whisper,
+speechbrain, jiwer, soundfile, huggingface-hub, numpy, PyYAML, and the isolated
+IndexTTS environment) is distributed under its own license; consult each project.

@@ -1,0 +1,28 @@
+# XTTS-v2 (autoregressive codec-LM). cond-ID config: a gentle,
+# structure-preserving redirect erases forget identity while keeping the forget
+# speech intelligible and the retain speakers intact.
+model: xtts
+token_axis: -1
+unlearn:
+  alpha: 0.75
+  gamma: 0.35
+  redirect_w: 3.5
+  structure_w: 1.0
+  retain_w: 1.5
+  k: 6
+  steps: 25
+  lr: 0.0005
+eval:
+  n_forget: 4
+  n_retain_seen: 3
+  n_retain_unseen: 1
+  sentences: 2
+  seed: 0
+  n_splits: 5
+relearn:
+  steps: 40
+  n: 3
+  n_clips: 2
+  max_seconds: 600
+  budgets: "20:1,40:2,80:2,160:4"
+  surfaces: [gpt_full, condpath_full, condpath_adaptive]
